@@ -3,6 +3,7 @@ package steps;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.Courier;
+import models.CreateCourier;
 
 import static io.restassured.RestAssured.given;
 
@@ -13,8 +14,7 @@ public class UserSteps {
                 .header("Content-type", "application/json")
                 .when()
                 .delete("http://qa-scooter.praktikum-services.ru/api/v1/courier/{id}", id)
-                .then().log().all()
-                .statusCode(200);
+                .then().log().all();
     }
 
     public String LoginUser(Courier user){
@@ -28,6 +28,17 @@ public class UserSteps {
                 .extract().response();
         JsonPath jsonPath = response.jsonPath();
         return Integer. toString(jsonPath.get("id"));
+    }
+
+    public void CreateCourier(CreateCourier user){
+        given()
+                .header("Content-type", "application/json")
+                .and()
+                .body(user)
+                .when()
+                .post("http://qa-scooter.praktikum-services.ru/api/v1/courier")
+                .then().log().all();
+
     }
 
 }
