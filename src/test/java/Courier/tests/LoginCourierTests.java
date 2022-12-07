@@ -1,15 +1,16 @@
-package tests;
+package Courier.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
-import models.CreateCourier;
+import Courier.models.Courier;
 import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class GetListOrdersTests {
+public class LoginCourierTests {
+
     @Before
     public void setUp() {
         RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru";
@@ -17,15 +18,17 @@ public class GetListOrdersTests {
 
     @Test
     @DisplayName("1")
-    @Description("1")
-    public void CreateUserTests() {
+    @Description("11")
+    public void rtytyTests() {
 
-
+        Courier courier= new Courier("lena1222228", "1234");
 
         given()
                 .header("Content-type", "application/json")
+                .and()
+                .body(courier)
                 .when()
-                .get("/api/v1/orders")
+                .post("/api/v1/courier/login")
                 .then().log().all()
                 .statusCode(200);
 

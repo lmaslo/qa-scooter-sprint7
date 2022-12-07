@@ -1,4 +1,4 @@
-package models;
+package Courier.models;
 
 public class Courier {
     private String login;
