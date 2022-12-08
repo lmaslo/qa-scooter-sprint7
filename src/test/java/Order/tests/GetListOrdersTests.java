@@ -1,33 +1,24 @@
 package Order.tests;
 
+import Order.steps.OrderSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
-import org.junit.Before;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.notNullValue;
 
 public class GetListOrdersTests {
-    @Before
-    public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru";
-    }
+
+    OrderSteps orderSteps = new OrderSteps();
 
     @Test
-    @DisplayName("1")
-    @Description("1")
-    public void CreateUserTests() {
+    @DisplayName("Запрос список заказов")
+    @Description("Проверка кода ответа и что в ответе возвращается список заказов")
+    public void GetOrderListTests() {
 
-
-
-        given()
-                .header("Content-type", "application/json")
-                .when()
-                .get("/api/v1/orders")
-                .then().log().all()
-                .statusCode(200);
-
-
+        orderSteps.GetOrderList()
+                .log().all()
+                .statusCode(200)
+                .body("orders", notNullValue());
     }
 }

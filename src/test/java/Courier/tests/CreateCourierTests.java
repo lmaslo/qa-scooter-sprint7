@@ -30,7 +30,6 @@ public class CreateCourierTests {
     @Description("Проверка успешного создания курьера, после теста данные с id удаляются")
     public void CreateUserTests() {
         CreateCourier createCourier = generation.newCourier();
-        createCourier.setLogin("leeeeene1");
         Courier courierCredentials = new Courier(createCourier.getLogin(), createCourier.getPassword());
 
         step.CreateCourier(createCourier)
