@@ -35,13 +35,11 @@ public class UserSteps {
                 .then();
     }
 
-    public String LoginUserGetID(Courier user) {
-        Response response = LoginUser(user).extract().response();
-        JsonPath jsonPath = response.jsonPath();
-        return Integer.toString(jsonPath.get("id"));
+    public int LoginUserGetID(Courier user) {
+        return LoginUser(user).extract().path("id");
     }
 
-    public void DeleteUser(String id) {
+    public void DeleteUser(int id) {
         given()
                 .contentType(ContentType.JSON)
                 .baseUri(BASE_URI)
