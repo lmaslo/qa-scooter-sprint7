@@ -1,8 +1,6 @@
 package Courier.steps;
 
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 import Courier.models.Courier;
 import Courier.models.CreateCourier;
 import io.restassured.response.ValidatableResponse;

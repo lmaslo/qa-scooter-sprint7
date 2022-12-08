@@ -1,6 +1,5 @@
 package Courier.models;
 
-
 import java.util.Random;
 
 public class CourierGeneration {
