@@ -11,9 +11,9 @@ public class CreateOrder {
     private int rentTime;
     private String deliveryDate;
     private String comment;
-    private ArrayList<String> color;
+    private String[] color;
 
-    public CreateOrder(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String comment, ArrayList<String> color) {
+    public CreateOrder(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String comment, String[] color) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -89,11 +89,11 @@ public class CreateOrder {
         this.comment = comment;
     }
 
-    public ArrayList<String> getColor() {
+    public Object getColor() {
         return color;
     }
 
-    public void setColor(ArrayList<String> color) {
+    public void setColor(String[] color) {
         this.color = color;
     }
 }
